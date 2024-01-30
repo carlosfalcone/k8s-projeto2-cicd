@@ -2,7 +2,7 @@
 
 echo "Deletando os servicos..."
 kubectl delete service mysql-connection
-kubectl delete service app1-service
+# kubectl delete service app1-service
 kubectl get services
 
 echo "Deletando o deployment..."
