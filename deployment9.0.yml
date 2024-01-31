@@ -37,7 +37,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: carlosfalcone/projeto2-database:2.0
+      - image: carlosfalcone/projeto2-database:3.0
         args:
         - "--ignore-db-dir=lost+found"
         imagePullPolicy: Always
@@ -45,6 +45,22 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
+        
+        # Linhas abaixo introduzidas para implementaçao do PV e PVC
+        
+        env: # Secrets do github actions
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ secrets.MYSQL_ROOT_PASSWORD }} 
+              key: MYSQL_ROOT_PASSWORD
+          
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: {{ secrets.MYSQL_DATABASE }} 
+              key: MYSQL_DATABASE
+
 
         volumeMounts:
         - name: local
