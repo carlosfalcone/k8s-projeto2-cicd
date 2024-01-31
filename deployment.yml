@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app1 
-        image: carlosfalcone/projeto2-backfront:13
+        image: carlosfalcone/projeto2-backfront:14
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -37,7 +37,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: carlosfalcone/projeto2-database:10
+      - image: carlosfalcone/projeto2-database:11
         args:
         - "--ignore-db-dir=lost+found"
         imagePullPolicy: Always
@@ -54,21 +54,7 @@ spec:
           value: Senha123
         - name: MYSQL_DATABASE
           value: meubanco
-        # Se for usar secrets, tem que ser no proprio computador que estiver rodando esse manifesto. O secret do github actions nao tem nenhuma ação sobre esse script, pois ele esta sendo rodado na maquina fisica local.
-
-        # env: # Secrets do github actions
-        # - name: MYSQL_ROOT_PASSWORD
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: {{ secrets.MYSQL_ROOT_PASSWORD }} 
-        #       key: MYSQL_ROOT_PASSWORD
-          
-        # - name: MYSQL_DATABASE
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: {{ secrets.MYSQL_DATABASE }} 
-        #       key: MYSQL_DATABASE
-
+        # Se for usar secrets, tem que gerar um arquivo secrets.yml para rodar no computador fisico local, pois este codigo de deployment está sendo executado no computador fisico local. O secret do github actions nao tem nenhuma ação sobre esse script, pois ele roda somente no computador remoto do github ou precisa conceder acesso ao computador que ele ira acessar para rodar os comandos.
 
         volumeMounts:
         - name: local

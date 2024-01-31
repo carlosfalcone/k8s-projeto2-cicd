@@ -33,6 +33,7 @@ jobs:
         docker push carlosfalcone/projeto2-database:%TAG_DATABASE%
 
 
+# O codigo abaixo nao funcionou no computador fisico local (windows)
   # kubernetes_deploy:
   #   needs: [build-linux]  # Dependente do job build-linux
   #   runs-on: self-hosted
