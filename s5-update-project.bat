@@ -8,5 +8,5 @@ powershell -Command "(Get-Content .\arquivos_base\deployment.yml) -replace '%%TA
 
 REM Subir os arquivos atualizados para o GitHub
 git add .
-git commit -m "update 18 - entrega final" 
+git commit -m "update 19 - entrega final" 
 git push -u origin main
