@@ -1,5 +1,5 @@
 echo "Realizando os deployments..."
-kubectl apply -f ./deployment13.0.yml --record
+kubectl apply -f ./deployment.yml --record
 
 echo "Verificando o deploy:"
 kubectl get deploy
