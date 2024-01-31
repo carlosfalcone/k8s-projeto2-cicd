@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app1 
-        image: carlosfalcone/projeto2-backfront:7.0
+        image: carlosfalcone/projeto2-backfront:8.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -37,7 +37,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: carlosfalcone/projeto2-database:1.0
+      - image: carlosfalcone/projeto2-database:2.0
         args:
         - "--ignore-db-dir=lost+found"
         imagePullPolicy: Always
@@ -45,6 +45,43 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
+
+        volumeMounts:
+        - name: local
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: local
+        persistentVolumeClaim:
+          claimName: local
+
+---
+apiVersion: v1 
+kind: PersistentVolume
+metadata:
+  name: local
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /meubanco/
+
+---
+apiVersion: v1 
+kind: PersistentVolumeClaim
+metadata:
+  name: local
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
 
 ---
 apiVersion: v1

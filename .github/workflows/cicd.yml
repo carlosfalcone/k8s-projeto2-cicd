@@ -25,12 +25,12 @@ jobs:
         DOCKER_TLS_CERTDIR: "/certs"
       run: |
         echo "Criando as imagens..."
-        docker build -t carlosfalcone/projeto2-backfront:7.0 app/.
-        docker build -t carlosfalcone/projeto2-database:1.0 database/. 
+        docker build -t carlosfalcone/projeto2-backfront:8.0 app/.
+        docker build -t carlosfalcone/projeto2-database:2.0 database/. 
 
         echo "Realizando o push das imagens..."
-        docker push carlosfalcone/projeto2-backfront:7.0
-        docker push carlosfalcone/projeto2-database:1.0 
+        docker push carlosfalcone/projeto2-backfront:8.0
+        docker push carlosfalcone/projeto2-database:2.0 
 
 
   # kubernetes_deploy:
