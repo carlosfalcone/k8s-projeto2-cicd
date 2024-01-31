@@ -1,17 +1,18 @@
-## Construção da arquitetura: aplicação e banco de dados
+# Construção da arquitetura: aplicação e banco de dados
 
+- Arquitetura proposta para o projeto:
+    - Githube Actions para realizar o build e push das imagens docker automaticamente a cada git push executado 
+    - Minikube para geração do cluster kubernetes
+    - Powershell para controle do kubernetes (kubectl) (Execuçao dos arquivos locais, os mesmos carregados no repositório remoto do github)
 
-# MODO FÁCIL
+## MODO FÁCIL
 
-- execute cada um dos scritps .bat de acordo com a necessidade
+- execute cada um dos scritps .bat de acordo com a necessidade, após carregar a estrutura dos arquivos
 
 
 ## MODO MANUAL
 
-1 - Arquitetura proposta para estudo:
-    - Githube Actions para realizar o build e push das imagens docker automaticamente a cada git push executado 
-    - Minikube para geração do cluster kubernetes
-    - Powershell para controle do kubernetes (kubectl) (Execuçao dos arquivos locais, os mesmos carregados no repositório remoto do github)
+1 - Abra o powershell
 
 2 - No powershell, baixe este projeto usando git:
     git clone https://github.com/carlosfalcone/k8s-projeto2-cicd.git
