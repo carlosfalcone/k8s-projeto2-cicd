@@ -33,16 +33,16 @@ jobs:
         docker push carlosfalcone/projeto2-database:1.0 
 
 
-  kubernetes_deploy:
-    needs: [build-linux]  # Dependente do job build-linux
-    runs-on: self-hosted
+  # kubernetes_deploy:
+  #   needs: [build-linux]  # Dependente do job build-linux
+  #   runs-on: self-hosted
 
-    steps:
-    - name: Checkout do código
-      uses: actions/checkout@v2
+  #   steps:
+  #   - name: Checkout do código
+  #     uses: actions/checkout@v2
       
-    - name: Configurar PowerShell
-      run: |
-        Set-Location -Path C:\Users\Falcone\Downloads\k8s-projeto2-cicd
-        .\script-kubernetes-win.bat
-      shell: powershell
+  #   - name: Configurar PowerShell
+  #     run: |
+  #       Set-Location -Path C:\Users\Falcone\Downloads\k8s-projeto2-cicd
+  #       .\script-kubernetes-win.bat
+  #     shell: powershell
