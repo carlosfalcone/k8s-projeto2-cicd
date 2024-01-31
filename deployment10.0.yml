@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app1 
-        image: carlosfalcone/projeto2-backfront:8.0
+        image: carlosfalcone/projeto2-backfront:9.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
