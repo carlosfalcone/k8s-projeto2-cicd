@@ -1,5 +1,13 @@
 ## Construção da arquitetura: aplicação e banco de dados
 
+
+# MODO FÁCIL
+
+- execute cada um dos scritps .bat de acordo com a necessidade
+
+
+## MODO MANUAL
+
 1 - Arquitetura proposta para estudo:
     - Githube Actions para realizar o build e push das imagens docker automaticamente a cada git push executado 
     - Minikube para geração do cluster kubernetes
@@ -97,3 +105,10 @@ Diferenças entre esse projeto e o projeto 'k8s-projeto2':
 
 2 - No arquivo cicd.yml estao as chaves secretas para acesso ao docker hub. Os valores das chaves estao guardados no github Actions secrets
 
+
+3 - Outros comandos relacionados:
+minikube start
+minikube status
+minikube stop
+minikube delete
+minikube ssh
