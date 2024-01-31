@@ -60,11 +60,11 @@
 
 ## Utilização recorrente da arquitetura
 
-### MODO FÁCIL
+### Modo fácil
 
 - execute cada um dos scritps .bat de acordo com a necessidade, após carregar a estrutura dos arquivos
 
-### MODO MANUAL
+### Modo manual
 
 1 - Faça a atualizaçao do projeto, usando o vscode: app (frontend: index, css ou js / backend: *.php) ou bancodedados (sql)
 
