@@ -7,3 +7,5 @@
      - No nome do arquivo de deploy: deployment4.0.yml
      - Nas linhas de comando dentro do arquivo deploymentx.x.yml: carlosfalcone/projeto2-backfront:4.0 e carlosfalcone/projeto2-database:1.0
      - Na linha de comando dentro do arquivo script-kubernetes-win.bat: kubectl apply -f ./deployment4.0.yml --record
+
+4 - Após o github actions terminar a execução, vá para o powershell e execute o script-kubernetes-win.bat, dentro do diretório k8s-projeto2-cicd
