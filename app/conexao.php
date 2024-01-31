@@ -1,17 +1,21 @@
+<!-- A atualização das senhas expostas para secrets no action hub causaram erro na aquisiçao de dados 
+Os dados sao preenchidos no frontend, mas nao sao salvos no mysql. Voltei o codigo ao que era antes: senhas expostas -->
+
 <?php
 $servername = "mysql-connection";
 $username = "root";
-$password = getenv('MYSQL_ROOT_PASSWORD'); // Obtém a senha do secret
-$database = getenv('MYSQL_DATABASE'); // Obtém o nome do banco de dados do secret
-
+$password = "Senha123";
+$database = "meubanco";
 
 // Criar conexão
+
 
 $link = new mysqli($servername, $username, $password, $database);
 
 /* check connection */
-if ($link->connect_error) {
-    die("Connect failed: " . $link->connect_error);
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
 }
-?>
 
+?>
