@@ -63,9 +63,13 @@
 1 - Faça a atualizaçao do projeto, usando o vscode: app (frontend: index, css ou js / backend: *.php) ou bancodedados (sql)
 
 2 - Faça a atualizaçao das versões, usando o vscode:
+
 2.1 - Nas linhas de comando docker build e push dentro do arquivo cicd.yml: carlosfalcone/projeto2-backfront:4.0 e carlosfalcone/projeto2-database:1.0
+
 2.2 - No nome do arquivo de deployment (ex: arquivo deployment1.0.yml)
+
 2.3 - Nas linhas de comando dentro do arquivo deploymentx.x.yml: carlosfalcone/projeto2-backfront:4.0 e carlosfalcone/projeto2-database:1.0
+
 2.4 - Na linha de comando dentro do arquivo script-kubernetes-win.bat: kubectl apply -f ./deployment4.0.yml --record
 
 Estou usando --record para gravar os deploys e com isso tanto o nome do arquivo deve ser atualizado, quanto a linha de comando dentro do scrip.sh para ficar fácil de verificar o historico das gravações.

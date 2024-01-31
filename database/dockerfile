@@ -1,11 +1,30 @@
+# FROM mysql:5.7
+
+# WORKDIR /var/lib/mysql/
+
+# ENV MYSQL_ROOT_PASSWORD=Senha123
+
+# ENV MYSQL_DATABASE=meubanco
+
+# ADD sql.sql /docker-entrypoint-initdb.d
+
+# EXPOSE 3306
+
+
 FROM mysql:5.7
 
 WORKDIR /var/lib/mysql/
 
-ENV MYSQL_ROOT_PASSWORD=Senha123
+# Defina as variáveis de ambiente usando os secrets do GitHub Actions
+ARG MYSQL_ROOT_PASSWORD
+ENV MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
 
-ENV MYSQL_DATABASE=meubanco
+ARG MYSQL_DATABASE
+ENV MYSQL_DATABASE=${MYSQL_DATABASE}
 
+# Copie o arquivo SQL para o diretório de inicialização do banco de dados
 ADD sql.sql /docker-entrypoint-initdb.d
 
+# Exponha a porta 3306
 EXPOSE 3306
+
