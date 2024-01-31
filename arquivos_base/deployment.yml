@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app1 
-        image: carlosfalcone/projeto2-backfront:13
+        image: carlosfalcone/projeto2-backfront:%TAG_BACKFRONT%
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -37,7 +37,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: carlosfalcone/projeto2-database:10
+      - image: carlosfalcone/projeto2-database:%TAG_DATABASE%
         args:
         - "--ignore-db-dir=lost+found"
         imagePullPolicy: Always
