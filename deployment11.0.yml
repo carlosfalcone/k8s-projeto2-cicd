@@ -37,7 +37,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: carlosfalcone/projeto2-database:3.0
+      - image: carlosfalcone/projeto2-database:5.0
         args:
         - "--ignore-db-dir=lost+found"
         imagePullPolicy: Always
