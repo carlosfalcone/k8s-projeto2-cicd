@@ -31,11 +31,11 @@
     url: "http://192.168.59.101:30203/incluir.php",
 
 11 - Suba os arquivos locais para o diretorio remoto no github. Observe que o arquivo js.js já será carregado com a alterçao na url acima.
-    git init
-    git add .
-    git commit "insira-aqui-seu-texto"
-    git branch -M main
-    git remote add origin copie-e-cole-o-caminho-para-clone-https
+    git init >>
+    git add . >>
+    git commit "insira-aqui-seu-texto" >>
+    git branch -M main >>
+    git remote add origin copie-e-cole-o-caminho-para-clone-https >>
     git push -u origin main
 
 12 - Verifique a execução do Github Actions e se as imagens foram carregadas no docker hub
@@ -52,9 +52,9 @@
 16 - Entre com os dados no frontend e clique no botao enviar. Se tudo ocorrer bem, você receberá uma mensagem de que os dados foram salvos.
 
 17 - Para verificar o seu banco de dados, entre no pod do mysql e verifique os dados usando o comando mysql:
-    kubectl exec --stdin --tty  [nome-do-pod-mysql] -- /bin/bash
-    mysql -u root -p
-    Entre com a senha
+    kubectl exec --stdin --tty  [nome-do-pod-mysql] -- /bin/bash >>
+    mysql -u root -p >>
+    Entre com a senha >>
     Entre com os comandos SQL (use meubanco;) (show tables;) (etc...)
 
 
@@ -74,9 +74,9 @@
 
 Estou usando --record para gravar os deploys e com isso tanto o nome do arquivo deve ser atualizado, quanto a linha de comando dentro do scrip.sh para ficar fácil de verificar o historico das gravações.
 
-3 - Carrege as atualizações no github
-    git add .
-    git commit -m "xxxxx"
+3 - Carrege as atualizações no github:
+    git add . >>
+    git commit -m "xxxxx" >>
     git push -u origin main
 
 4 - Execute do item 13;

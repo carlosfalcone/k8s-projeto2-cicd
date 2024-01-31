@@ -1,17 +1,17 @@
 <?php
 $servername = "mysql-connection";
 $username = "root";
-$password = "Senha123";
-$database = "meubanco";
+$password = getenv('MYSQL_ROOT_PASSWORD'); // Obtém a senha do secret
+$database = getenv('MYSQL_DATABASE'); // Obtém o nome do banco de dados do secret
+
 
 // Criar conexão
 
 $link = new mysqli($servername, $username, $password, $database);
 
 /* check connection */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
+if ($link->connect_error) {
+    die("Connect failed: " . $link->connect_error);
 }
-
 ?>
+
