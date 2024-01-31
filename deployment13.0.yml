@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app1 
-        image: carlosfalcone/projeto2-backfront:9.0
+        image: carlosfalcone/projeto2-backfront:{{ tag-backfront }}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -37,7 +37,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: carlosfalcone/projeto2-database:6.0
+      - image: carlosfalcone/projeto2-database:{{ tag-database }}
         args:
         - "--ignore-db-dir=lost+found"
         imagePullPolicy: Always
@@ -48,6 +48,14 @@ spec:
         
         # Linhas abaixo introduzidas para implementaçao do PV e PVC
         
+        env:
+          # Use secret in real usage
+        - name: MYSQL_ROOT_PASSWORD
+          value: Senha123
+        - name: MYSQL_DATABASE
+          value: meubanco
+        # Se for usar secrets, tem que ser no proprio computador que estiver rodando esse manifesto. O secret do github actions nao tem nenhuma ação sobre esse script, pois ele esta sendo rodado na maquina fisica local.
+
         # env: # Secrets do github actions
         # - name: MYSQL_ROOT_PASSWORD
         #   valueFrom:
