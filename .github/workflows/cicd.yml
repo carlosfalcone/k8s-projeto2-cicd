@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-linux:
+  docker_build_and_push:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,17 +33,16 @@ jobs:
         docker push carlosfalcone/projeto2-database:1.0 
 
 
-  build-windows:
-    runs-on: windows-latest
+  kubernetes_deploy:
+    needs: [build-linux]  # Dependente do job build-linux
+    runs-on: self-hosted
 
     steps:
     - name: Checkout do código
       uses: actions/checkout@v2
-
+      
     - name: Configurar PowerShell
-      uses: microsoft/setup-powershell@v1.0.0
-
-    - name: Executar script PowerShell
       run: |
-        # Seu script PowerShell aqui
-        Write-Host "Olá, GitHub Actions!"
+        Set-Location -Path C:\Users\Falcone\Downloads\k8s-projeto2-cicd
+        .\script-kubernetes-win.bat
+      shell: powershell
